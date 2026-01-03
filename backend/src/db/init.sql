@@ -1,0 +1,2 @@
+-- Optional SQL seed file for reference
+-- Tables are created automatically via src/config/db.js

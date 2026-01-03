@@ -1,0 +1,21 @@
+Project: Portal Review Game Lokal Indonesia
+
+Ringkasan Singkat:
+- Frontend: Vite + React (tema merah-putih-hitam) di folder `frontend/`.
+- Backend: Node.js + Express + MySQL di folder `backend/`.
+- Fitur: auth JWT (USER/ADMIN/SUPER_ADMIN), CRUD game, review pemain (aturan role/ownership), logging aktivitas (register/login/CRUD game/review) untuk super admin, chart data di dashboard/admin & halaman game.
+- Database: MySQL (schema dibuat otomatis saat `npm run dev`); butuh kredensial di `.env`.
+
+Struktur Database (MySQL):
+- users: id, name, email, password, role, profile_photo, created_at
+- games: id, title, developer, publisher, platform, owner_id, mode, genres, release_date, description, cover_image, created_at
+- reviews: id, game_id, user_id, rating, comment, created_at
+- user_logs: id, user_id, role, action, entity_type, entity_id, meta, ip, user_agent, created_at
+
+User Bawaan (default seed, dibuat otomatis):
+- Super Admin — Email: superadmin@gamelokal.id — Password: superadmin123
+- Admin — Email: admin@gamelokal.id — Password: admin123
+
+Menjalankan:
+1) Backend: siapkan `.env` (DB_HOST/DB_USER/DB_PASSWORD/DB_NAME/DB_PORT, JWT_SECRET, ADMIN_EMAIL/PASSWORD opsional). Lalu `cd backend && npm install && npm run dev`.
+2) Frontend: `cd frontend && npm install && npm run dev` (set `VITE_API_URL` jika backend bukan localhost:5000).
